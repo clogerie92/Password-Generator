@@ -6,11 +6,8 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 
 // Function to get options from user input
-userPasswordOptions();
-
 function userPasswordOptions() {
   var passwordLength = parseInt(prompt("How many characters do you want your password to have?"));
-
   if (isNaN(passwordLength)) {
     console.log("Must enter a numerical value!");
     alert("Must enter a numerical value!");
@@ -18,15 +15,23 @@ function userPasswordOptions() {
     console.log("Password must be between 8 and 128 characters long!");
     alert("Password must be between 8 and 128 characters long!");
   }
+  var confirmSpecialCharacters = confirm("Do you want special characters in your password?");
+  var confirmNumbers = confirm("Do you want numbers in your password?");
+  var confirmUppercase = confirm("Do you want uppercase letters in your password?");
+  var confirmLowercase = confirm("Do you want lowercase letters in your password?");
+  if (!confirmSpecialCharacters && !confirmNumbers && !confirmUppercase && !confirmLowercase) {
+    alert("Sorry, must choose at least one charactre type!");
+    return;
+  } 
 }
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  // userPasswordOptions();
+  var password = userPasswordOptions();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
