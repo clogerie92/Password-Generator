@@ -6,7 +6,7 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 
 // Function to get options from user input
-function userPasswordOptions() {
+function generatePassword() {
   var passwordLength = parseInt(prompt("How many characters do you want your password to have?"));
   if (isNaN(passwordLength)) {
     console.log("Must enter a numerical value!");
@@ -23,6 +23,21 @@ function userPasswordOptions() {
     alert("Sorry, must choose at least one charactre type!");
     return;
   } 
+
+  var userPasswordOptions = {
+    length: passwordLength,
+    specialCharacters: confirmSpecialCharacters,
+    numbers: confirmNumbers,
+    lowerCase: confirmLowercase,
+    upperCase: confirmUppercase
+  };
+  return userPasswordOptions;
+}
+
+function chooseRandomCharacter(array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomCharacter = array[randomIndex];
+  return randomCharacter;
 }
 
 // Assignment Code
@@ -30,8 +45,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // userPasswordOptions();
-  var password = userPasswordOptions();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
