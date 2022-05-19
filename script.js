@@ -11,8 +11,7 @@ function userPasswordOptions() {
   // if user clicks cancel, terminate the program (not working)
   if (passwordLength === null) {
     return;
-  } 
-  if(isNaN(passwordLength)) {
+  } else if(isNaN(passwordLength)) {
     console.log("Must enter a numerical value!");
     alert("Must enter a numerical value!");
     return;
