@@ -8,7 +8,7 @@
 
 // Create an array of uppercase characters and store it to a variable
 
-// Ccreate an array of lowercase characters and store it to a variable
+// Create an array of lowercase characters and store it to a variable
 
 // ==========================================
 // Function to get options from user input
