@@ -6,7 +6,7 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 
 // Function to get options from user input
-function generatePassword() {
+function userPasswordOptions() {
   var passwordLength = parseInt(prompt("How many characters do you want your password to have?"));
   if (isNaN(passwordLength)) {
     console.log("Must enter a numerical value!");
@@ -24,6 +24,7 @@ function generatePassword() {
     return;
   } 
 
+  // Stores the user's options in object
   var userPasswordOptions = {
     length: passwordLength,
     specialCharacters: confirmSpecialCharacters,
@@ -40,15 +41,64 @@ function chooseRandomCharacter(array) {
   return randomCharacter;
 }
 
+function generatePassword() {
+  var passwordOptions = userPasswordOptions();
+  // stores the password
+  var passwordArray = [];
+  // stores possible characters
+  var characters = [];
+  //stores character types that were chosen
+  var chosenCharacters = [];
+
+  if (passwordOptions.specialCharacters) {
+    characters = characters.concat(specialCharacters);
+    chosenCharacters.push(chooseRandomCharacter(specialCharacters));
+    console.log(chosenCharacters);
+  }
+
+  if (passwordOptions.upperCaseLetters) {
+    characters = characters.concat(upperCaseLetters);
+    chosenCharacters.push(chooseRandomCharacter(upperCaseLetters));
+    console.log(chosenCharacters);
+  }
+
+  if (passwordOptions.lowerCaseLetters) {
+    characters = characters.concat(lowerCaseLetters);
+    chosenCharacters.push(chooseRandomCharacter(lowerCaseLetters));
+    console.log(chosenCharacters);
+  }
+
+  if (passwordOptions.numbers) {
+    characters = characters.concat(numbers);
+    chosenCharacters.push(chooseRandomCharacter(numbers));
+    console.log(chosenCharacters);
+  }
+
+  for (var i = 0; i < passwordOptions.length; i++) {
+    var character = chooseRandomCharacter(characters);
+    passwordArray.push(character);
+  }
+
+  for (var i = 0; i < chosenCharacters.length; i++) {
+    var character = chooseRandomCharacter(characters);
+    passwordArray[i] = chosenCharacters[i];
+  }
+
+  return passwordArray.join("");
+
+}
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  // userPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  console.log(password);
 
 }
 
