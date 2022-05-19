@@ -5,6 +5,20 @@ var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 
+// Function to get options from user input
+userPasswordOptions();
+
+function userPasswordOptions() {
+  var passwordLength = parseInt(prompt("How many characters do you want your password to have?"));
+
+  if (isNaN(passwordLength)) {
+    console.log("Must enter a numerical value!");
+    alert("Must enter a numerical value!");
+  } else if (passwordLength < 8 || passwordLength > 128) {
+    console.log("Password must be between 8 and 128 characters long!");
+    alert("Password must be between 8 and 128 characters long!");
+  }
+}
 
 
 // Assignment Code
