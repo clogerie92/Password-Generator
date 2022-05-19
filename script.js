@@ -8,9 +8,14 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // Function to get options from user input
 function userPasswordOptions() {
   var passwordLength = parseInt(prompt("How many characters do you want your password to have?"));
-  if (isNaN(passwordLength)) {
+  // if user clicks cancel, terminate the program (not working)
+  if (passwordLength === null) {
+    return;
+  } 
+  if(isNaN(passwordLength)) {
     console.log("Must enter a numerical value!");
     alert("Must enter a numerical value!");
+    return;
   } else if (passwordLength < 8 || passwordLength > 128) {
     console.log("Password must be between 8 and 128 characters long!");
     alert("Password must be between 8 and 128 characters long!");
