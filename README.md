@@ -19,7 +19,7 @@ JavaScript
 
 The following image shows the web application's appearance:
 
-![Password Generator](./Assets/03-javascript-homework-demo.png)
+![Password Generator](./images/password-generator.png)
 
 
 
