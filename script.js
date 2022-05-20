@@ -29,14 +29,15 @@ function userPasswordOptions() {
   } 
 
   // Stores the user's options in object
-  var userPasswordOptions = {
+  var passwordObject = {
     length: passwordLength,
     specialCharacters: confirmSpecialCharacters,
     numbers: confirmNumbers,
     lowerCase: confirmLowercase,
     upperCase: confirmUppercase
   };
-  return userPasswordOptions;
+  // console.log(passwordObject);
+  return passwordObject;
 }
 
 function chooseRandomCharacter(array) {
@@ -47,6 +48,7 @@ function chooseRandomCharacter(array) {
 
 function generatePassword() {
   var passwordOptions = userPasswordOptions();
+  console.log(passwordOptions);
   // stores the password
   var passwordArray = [];
   // stores possible characters
@@ -56,25 +58,26 @@ function generatePassword() {
 
   if (passwordOptions.specialCharacters) {
     characters = characters.concat(specialCharacters);
-    chosenCharacters.push(chooseRandomCharacter(specialCharacters));
+    chosenCharacters.push(chooseRandomCharacter(characters));
+    console.log("user wants special characters!");
     console.log(chosenCharacters);
-  }
-
-  if (passwordOptions.upperCaseLetters) {
+  }  
+  if (passwordOptions.upperCase) {
     characters = characters.concat(upperCaseLetters);
-    chosenCharacters.push(chooseRandomCharacter(upperCaseLetters));
+    chosenCharacters.push(chooseRandomCharacter(characters));
+    console.log("user wants uppercase characters!");
     console.log(chosenCharacters);
-  }
-
-  if (passwordOptions.lowerCaseLetters) {
+  }  
+  if (passwordOptions.lowerCase) {
     characters = characters.concat(lowerCaseLetters);
-    chosenCharacters.push(chooseRandomCharacter(lowerCaseLetters));
+    chosenCharacters.push(chooseRandomCharacter(characters));
+    console.log("user wants lowercase characters!");
     console.log(chosenCharacters);
-  }
-
+  }  
   if (passwordOptions.numbers) {
     characters = characters.concat(numbers);
-    chosenCharacters.push(chooseRandomCharacter(numbers));
+    chosenCharacters.push(chooseRandomCharacter(characters));
+    console.log("user wants numbers!");
     console.log(chosenCharacters);
   }
 
