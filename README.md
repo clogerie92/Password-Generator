@@ -14,6 +14,7 @@ JavaScript
 ```
 
 # GitHub Pages:
+https://clogerie92.github.io/Password-Generator/
 
 ## Mock-Up
 
@@ -25,3 +26,4 @@ The following image shows the web application's appearance:
 
 ## Contributer
 Carl Logerie
+Contact: carl.logerie92@gmail.com
